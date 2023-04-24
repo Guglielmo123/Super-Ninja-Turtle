@@ -33,6 +33,7 @@ if (!gameRunning)
   gameRunning=true}
 }
 document.addEventListener('keydown', moveTurtle);
+document.addEventListener('keyup', stopMoving);
 }
 
 
