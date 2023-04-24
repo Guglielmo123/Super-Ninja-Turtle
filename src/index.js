@@ -4,7 +4,7 @@ const myCanvas = document.getElementById('canvas');
 const ctx = myCanvas.getContext('2d');
 
 const img = new Image();
-img.src ="../images/tmnt background 2.jpg"
+img.src ="../images/8-bit-mario-background-1-Background-Download.png"
 
 const backgroundImage = {
   img: img,
