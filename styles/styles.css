@@ -24,8 +24,11 @@ body {
 
 .logo-img{
     width: 500px;
-    border-radius: 20px;
-    padding-top: 100px;
+    border-radius: 10px;
+    border: 10px solid black;
+    margin-right: 100px;
+    margin-top: 100px;
+
 }
 
 .arrows-img{
@@ -39,7 +42,7 @@ body {
 }
 
 #board {
-    border: 1px solid red;
+    border: 10px solid black;
     background-image: url('../images/background\ nyc.jpg');
     margin-top: 60px;
     background-size: cover;

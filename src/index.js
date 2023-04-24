@@ -118,7 +118,6 @@ for(let i = 0; i < enemiesArray.length; i++ ){
     context.clearRect(0,0,boardWidth, boardHeight)
     context.fillText(`GAME OVER!: ${score}`, (boardWidth/4)+20, boardHeight/8);
       gameOver = true; 
-  
     }
      
 
@@ -182,6 +181,7 @@ velocityY = -10;
 }
 
 if(gameOver){
+  turtleImg.src = "./images/ninja-turtle-player.png";
   turtle.y = turtleY;
   enemiesArray = [];
   score = 0;
