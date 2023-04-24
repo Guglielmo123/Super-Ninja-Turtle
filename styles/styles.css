@@ -38,8 +38,12 @@ body {
 
 #board {
     border: 1px solid red;
-    background-color: beige;
+    background-image: url('../images/background\ nyc.jpg');
     margin-top: 60px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+
     
   }
 
