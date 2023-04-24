@@ -1,24 +1,30 @@
 body {
     background-image: url("../images/green-background.png");
-    padding: 0;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
 }
 
 
 
 .game-intro{
-    float:left;
-    padding:0% 10%;
+    padding: 0px;
+    
+
 }
 
 .game-intro p {
     font-size: 18px;
     font-family: "Verdana";
+
 }
 
 .logo-img{
     width: 500px;
+    
 }
 
 .arrows-img{
@@ -26,12 +32,24 @@ body {
 }
 
 #game-board{
-    float: left;
-    padding: 20px 0px;
+    
+    padding: 0px 0px;
 }
 
 #board {
     border: 1px solid red;
     background-color: beige;
-    margin-top: 110px;
+    margin-top: 60px;
+    
+  }
+
+  #start-button{
+    background-color: rgb(217, 69, 113);
+    font-size: 18px;
+    font-style: oblique;
+    font-weight: bold;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
   }

@@ -104,20 +104,18 @@ for(let i = 0; i < enemiesArray.length; i++ ){
   context.drawImage(enemy.img,enemy.x, enemy.y, enemy.width, enemy.height);
 
   if (detectCollision(turtle, enemy)){
-
-    gameOver = true;
     turtleImg.src="./images/dead-ninjaturtle-removebg-preview.png"
+    gameOver = true;
     turtleImg.onload = function(){
       context.drawImage(turtleImg, turle.x, turtle.y, turtle.width, turtle.height)
-
     }
   }
-//Score
 
+//Score
 context.fillStyle='black';
 context.font='40px courier';
 score++;
-context.fillText(score, (boardWidth/2)-10, boardHeight/8);
+context.fillText(`Your Score: ${score}`, (boardWidth/4)+20, boardHeight/8);
 
 
 }
