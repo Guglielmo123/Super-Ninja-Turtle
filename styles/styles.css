@@ -25,10 +25,12 @@ body {
 .logo-img{
     width: 500px;
     border-radius: 20px;
+    padding-top: 100px;
 }
 
 .arrows-img{
     width: 150px;
+    margin: 0px;
 }
 
 #game-board{

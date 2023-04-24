@@ -114,7 +114,7 @@ for(let i = 0; i < enemiesArray.length; i++ ){
 
   if (detectCollision(turtle, enemy)){
     velocityX = 0
-    turtleImg.src="./images/dead-ninjaturtle-removebg-preview.png"
+    turtleImg.src="./images/rip-removebg-preview.png"
     context.clearRect(0,0,boardWidth, boardHeight)
     context.fillText(`GAME OVER!: ${score}`, (boardWidth/4)+20, boardHeight/8);
       gameOver = true; 
