@@ -33,4 +33,5 @@ body {
 #board {
     border: 1px solid red;
     background-color: beige;
+    margin-top: 110px;
   }

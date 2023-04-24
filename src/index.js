@@ -1,21 +1,41 @@
 console.log('JS loaded!');
 
-const myCanvas = document.getElementById('canvas');
-const context = myCanvas.getContext('2d');
-
-const img = new Image();
-img.src ="../images/8-bit-mario-background-1-Background-Download.png"
-
 // board (canvas)
 let board;
 let boardWidth = 750;
-let boardHeight = 250;
+let boardHeight = 550;
 
 // turtle variables
 
 let turtleWidth = 88;
 let turtleHeight = 94;
 let turtleX = 50;
-let turtleY = 200;
-let turtleImg = new Image();
-turtleImg.src"../images/"
+let turtleY = boardHeight - turtleHeight; 
+let turtleImg;
+
+let turtle = {
+  x: turtleX,
+  y: turtleY,
+  width: turtleWidth,
+  height: turtleHeight,
+}
+
+// on load function when page loads -> we want backgroun canvas to show 
+window.onload = function (){  
+  board = document.getElementById("board");
+  board.height = boardHeight;
+  board.width = boardWidth;
+
+  context = board.getContext("2d");
+
+  // draw turtle once page is loaded 
+  turtleImg = new Image();
+  turtleImg.src = "./images/ninja-turtle-player.png";
+  turtleImg.onload = function() {
+    // calling a function when image loads - display it!
+    context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
+  };
+  
+}
+
+
