@@ -73,10 +73,19 @@ enemy2Img.src= "./images/enemy2.png"
 
 enemy3Img = new Image();
 enemy3Img.src= "./images/enemy3.png"
+let gameRunning = false
+
+const startButton = document.getElementById('start-button')
+console.log(startButton)
+startButton.onclick=()=>{
+
+if (!gameRunning)
+{requestAnimationFrame(update);
+  setInterval(placeEnemies, 1000);
+  gameRunning=true}
+}
 
 
-requestAnimationFrame(update);
-setInterval(placeEnemies, 1000);
 document.addEventListener('keydown', moveTurtle);
 }
 
@@ -104,19 +113,25 @@ for(let i = 0; i < enemiesArray.length; i++ ){
   context.drawImage(enemy.img,enemy.x, enemy.y, enemy.width, enemy.height);
 
   if (detectCollision(turtle, enemy)){
+    velocityX = 0
     turtleImg.src="./images/dead-ninjaturtle-removebg-preview.png"
-    gameOver = true;
-    turtleImg.onload = function(){
-      context.drawImage(turtleImg, turle.x, turtle.y, turtle.width, turtle.height)
+    context.clearRect(0,0,boardWidth, boardHeight)
+    context.fillText(`GAME OVER!: ${score}`, (boardWidth/4)+20, boardHeight/8);
+      gameOver = true; 
+  
     }
-  }
+     
 
-//Score
-context.fillStyle='black';
+
+
+
+//Score 
+if(!gameOver){
+  context.fillStyle='black';
 context.font='40px courier';
 score++;
 context.fillText(`Your Score: ${score}`, (boardWidth/4)+20, boardHeight/8);
-
+}
 
 }
 
@@ -162,7 +177,7 @@ function moveTurtle(e){
 
 if((e.code === 'Space'|| e.code === 'ArrowUp')&& turtle.y == turtleY){
 //jump 
-velocityY = -12;
+velocityY = -10;
 
 }
 
