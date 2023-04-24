@@ -66,17 +66,18 @@ window.onload = function (){
     context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
   };
 enemy1Img = new Image();
-enemy1Img.src= "../images/enemy1.png"
+enemy1Img.src= "./images/enemy1.png"
 
 enemy2Img = new Image();
-enemy2Img.src= "../images/enemy2.png"
+enemy2Img.src= "./images/enemy2.png"
 
 enemy3Img = new Image();
-enemy3Img.src= "../images/enemy3.png"
+enemy3Img.src= "./images/enemy3.png"
 
 
 requestAnimationFrame(update);
 setInterval(placeEnemies, 1000);
+document.addEventListener('keydown', moveTurtle);
 }
 
 
@@ -84,10 +85,16 @@ setInterval(placeEnemies, 1000);
 
 function update(){
 requestAnimationFrame(update);
+if(gameOver){
+  return;
+} // if the game is over we want eveything to stop
+
 //clear canvas on each interaction
 context.clearRect(0,0,boardWidth, boardHeight)
 
-
+// turtle 
+velocityY+=gravity;
+turtle.y = Math.min(turtle.y+velocityY,turtleY) // making sure that the turle y position is not below the fixed turtleY position
 context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
 //Enemies
 
@@ -95,12 +102,27 @@ for(let i = 0; i < enemiesArray.length; i++ ){
   let enemy = enemiesArray[i];
   enemy.x += velocityX
   context.drawImage(enemy.img,enemy.x, enemy.y, enemy.width, enemy.height);
+
+  if (detectCollision(turtle, enemy)){
+
+    gameOver = true;
+    turtleImg.src="./images/dead-ninjaturtle-removebg-preview.png"
+    turtleImg.onload = function(){
+      context.drawImage(turtleImg, turle.x, turtle.y, turtle.width, turtle.height)
+
+    }
+  }
+
 }
 
 }
 
 function placeEnemies(){
-let enemies = {
+  if(gameOver){
+    return;
+  }
+
+  let enemies = {
   img: null,
   x: enemyX,
   y: enemyY,
@@ -124,9 +146,28 @@ else if(placeEnemiesRandom > 0.5){
   enemies.img = enemy1Img;
   enemies.width = enemy1Width;
   enemiesArray.push(enemies)
+}if (enemiesArray.length > 5){
+  enemiesArray.shift() // removes first element from array so array does not constantly grow (takes up space)
+
+}
+ 
 }
 
+function moveTurtle(e){
+if(gameOver){return;}
+
+if((e.code === 'Space'|| e.code === 'ArrowUp')&& turtle.y == turtleY){
+//jump 
+velocityY = -12;
 
 }
+   
+}
 
-
+function detectCollision(a, b){
+  return a.x <  b.x + b.width && // a's top left corner does not reach b's top right corner  
+    a.x + a.width > b.x && //a's top right corner is bigger than b's top left corner  
+    a.y <b.y+ b.height && // a's top left corner does not reach b's bottom left corner 
+    a.y + a.height > b.y // a's bottom left corner does not reach b's top left corner 
+}
+ 
