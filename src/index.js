@@ -112,6 +112,13 @@ for(let i = 0; i < enemiesArray.length; i++ ){
 
     }
   }
+//Score
+
+context.fillStyle='black';
+context.font='40px courier';
+score++;
+context.fillText(score, (boardWidth/2)-10, boardHeight/8);
+
 
 }
 
@@ -154,12 +161,18 @@ else if(placeEnemiesRandom > 0.5){
 }
 
 function moveTurtle(e){
-if(gameOver){return;}
 
 if((e.code === 'Space'|| e.code === 'ArrowUp')&& turtle.y == turtleY){
 //jump 
 velocityY = -12;
 
+}
+
+if(gameOver){
+  turtle.y = turtleY;
+  enemiesArray = [];
+  score = 0;
+  gameOver = false;
 }
    
 }
