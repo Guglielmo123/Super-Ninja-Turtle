@@ -69,10 +69,10 @@ enemy1Img = new Image();
 enemy1Img.src= "../images/enemy1.png"
 
 enemy2Img = new Image();
-enemy2Img.src= "../images/enemy1.png"
+enemy2Img.src= "../images/enemy2.png"
 
 enemy3Img = new Image();
-enemy3Img.src= "../images/enemy1.png"
+enemy3Img.src= "../images/enemy3.png"
 
 
 requestAnimationFrame(update);
