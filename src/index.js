@@ -1,39 +1,21 @@
 console.log('JS loaded!');
 
 const myCanvas = document.getElementById('canvas');
-const ctx = myCanvas.getContext('2d');
+const context = myCanvas.getContext('2d');
 
 const img = new Image();
 img.src ="../images/8-bit-mario-background-1-Background-Download.png"
 
-const backgroundImage = {
-  img: img,
-  x: 0,
-  speed: -1,
+// board (canvas)
+let board;
+let boardWidth = 750;
+let boardHeight = 250;
 
-  move: function() {
-    this.x += this.speed;
-    this.x %= myCanvas.width;
-  },
+// turtle variables
 
-  draw: function() {
-    ctx.drawImage(this.img, this.x, 0);
-    if (this.speed < 0) {
-      ctx.drawImage(this.img, this.x + canvas.width, 0);
-    } else {
-      ctx.drawImage(this.img, this.x - this.img.width, 0);
-    }
-  },
-};
-
-function updateCanvas() {
-  backgroundImage.move();
-
-  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-  backgroundImage.draw();
-
-  requestAnimationFrame(updateCanvas);
-}
-
-
-img.onload = updateCanvas;
+let turtleWidth = 88;
+let turtleHeight = 94;
+let turtleX = 50;
+let turtleY = 200;
+let turtleImg = new Image();
+turtleImg.src"../images/"

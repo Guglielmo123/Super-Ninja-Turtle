@@ -1,7 +1,8 @@
 body {
-    background-image: url("../images/m5irgt.png");
+    background-image: url("../images/green-background.png");
     padding: 0;
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -29,6 +30,7 @@ body {
     padding: 20px 0px;
 }
 
-canvas {
-    border: 1px solid green;
+#board {
+    border: 1px solid red;
+    background-color: beige;
   }
