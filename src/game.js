@@ -38,15 +38,21 @@ function placeEnemies(){
   let isMovingRight = false;
   
   function moveTurtle(e) {
-    if ((e.code === 'Space' || e.code === 'ArrowUp') && turtle.y == turtleY) {
+    if ((e.code === 'ArrowUp') && turtle.y == turtleY) {
       //jump 
       velocityY = -10;
+  
     } else if (e.code === 'ArrowLeft') {
       // move left 
       isMovingLeft = true;
+     
     } else if (e.code === 'ArrowRight') {
       // move right 
       isMovingRight = true;
+
+    } else if (e.code === 'Space') {
+      velocityX =-8
+      gameOver = false;
     }
   
     if (gameOver) {
