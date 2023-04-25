@@ -32,7 +32,7 @@ startButton.onclick=()=>{
 music.play()
 
 if (!gameRunning)
-{requestAnimationFrame(update);
+{requestAnimationFrame(update,1000);
   setInterval(placeEnemies, 1000);
   gameRunning=true}
 }
@@ -76,8 +76,10 @@ for(let i = 0; i < enemiesArray.length; i++ ){
     backgroundImage.draw();
     musicGameOver.play();
     music.pause();
-    context.fillText(`GAME OVER!: ${score}`, (boardWidth/4)+20, boardHeight/8);
-
+    context.fillStyle='red'
+    context.fillText(`GAME OVER!:`, (boardWidth/4)+20, boardHeight/8);
+    context.fillStyle='green'
+    context.fillText(`${score}pts`,(boardWidth/4)+300, boardHeight/8);
       gameOver = true; 
     }
      
@@ -90,7 +92,7 @@ if(!gameOver){
   context.fillStyle='black';
 context.font='40px courier';
 score++;
-context.fillText(`Your Score: ${score}`, (boardWidth/4)+20, boardHeight/8);
+context.fillText(`Your Score: ${score}pts`, (boardWidth/4)+20, boardHeight/8);
 }
 
 }
