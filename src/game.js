@@ -36,6 +36,7 @@ function placeEnemies(){
   let movementSpeed = 5;
   let isMovingLeft = false;
   let isMovingRight = false;
+  const musicRecharge = document.getElementById('recharge-music');
   
   function moveTurtle(e) {
     if ((e.code === 'ArrowUp') && turtle.y == turtleY) {
@@ -60,6 +61,7 @@ function placeEnemies(){
       turtle.y = turtleY;
       enemiesArray = [];
       score = 0;
+      musicRecharge.play();
     }
   
   }

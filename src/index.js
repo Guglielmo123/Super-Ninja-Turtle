@@ -13,6 +13,7 @@ window.onload = function (){
     // calling a function when image loads - display it!
     context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
   };
+
 enemy1Img = new Image();
 enemy1Img.src= "./images/enemy1.png"
 
@@ -23,9 +24,12 @@ enemy3Img = new Image();
 enemy3Img.src= "./images/enemy3.png"
 let gameRunning = false
 
+const music = document.getElementById('music')
+
 const startButton = document.getElementById('start-button')
 console.log(startButton)
 startButton.onclick=()=>{
+music.play()
 
 if (!gameRunning)
 {requestAnimationFrame(update);
@@ -40,6 +44,7 @@ document.addEventListener('keyup', stopMoving);
 
 
 
+const musicGameOver = document.getElementById('music-gameover');
 
 function update(){
 requestAnimationFrame(update);
@@ -69,7 +74,10 @@ for(let i = 0; i < enemiesArray.length; i++ ){
     turtleImg.src="./images/rip-removebg-preview.png"
     context.clearRect(0,0,boardWidth, boardHeight)
     backgroundImage.draw();
+    musicGameOver.play();
+    music.pause();
     context.fillText(`GAME OVER!: ${score}`, (boardWidth/4)+20, boardHeight/8);
+
       gameOver = true; 
     }
      
