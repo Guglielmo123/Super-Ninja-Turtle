@@ -5,7 +5,7 @@ window.onload = function (){
   board.width = boardWidth;
 
   context = board.getContext("2d");
-
+  backgroundImage.draw();
   // draw turtle once page is loaded 
   turtleImg = new Image();
   turtleImg.src = "./images/ninja-turtle-player.png";
@@ -34,6 +34,8 @@ if (!gameRunning)
 }
 document.addEventListener('keydown', moveTurtle);
 document.addEventListener('keyup', stopMoving);
+
+
 }
 
 
@@ -41,12 +43,15 @@ document.addEventListener('keyup', stopMoving);
 
 function update(){
 requestAnimationFrame(update);
+
 if(gameOver){
   return;
 } // if the game is over we want eveything to stop
-
+backgroundImage.move();
 //clear canvas on each interaction
 context.clearRect(0,0,boardWidth, boardHeight)
+
+backgroundImage.draw();
 
 // turtle 
 velocityY+=gravity;
@@ -63,6 +68,7 @@ for(let i = 0; i < enemiesArray.length; i++ ){
     velocityX = 0
     turtleImg.src="./images/rip-removebg-preview.png"
     context.clearRect(0,0,boardWidth, boardHeight)
+    backgroundImage.draw();
     context.fillText(`GAME OVER!: ${score}`, (boardWidth/4)+20, boardHeight/8);
       gameOver = true; 
     }

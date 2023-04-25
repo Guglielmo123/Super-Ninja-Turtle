@@ -5,6 +5,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    font-weight: bolder;
+    color: black;
+    font-style: italic;
 
 }
 
@@ -19,6 +22,8 @@ body {
 .game-intro p {
     font-size: 18px;
     font-family: "Verdana";
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -26,39 +31,55 @@ body {
     width: 500px;
     border-radius: 10px;
     border: 10px solid black;
-    margin-right: 100px;
-    margin-top: 100px;
+    margin-top: 120px;
 
 }
 
-.arrows-img{
-    width: 150px;
+.space-img{
+    width: 120px;
+    height: 120px;
     margin: 0px;
+}
+.arrow-keys{
+    width: 160px;
+    height: 110px;
 }
 
 #game-board{
-    
-    padding: 0px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #board {
     border: 10px solid black;
-    background-image: url('../images/background\ nyc.jpg');
     margin-top: 60px;
+/*     background-image: url('../images/background\ nyc.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     
 
     
   }
 
   #start-button{
-    background-color: rgb(217, 69, 113);
+    background-color: transparent;
     font-size: 18px;
     font-style: oblique;
     font-weight: bold;
-    padding: 15px;
-    margin: 10px;
+    padding: 0px;
+    margin: 0px;
     border-radius: 10px;
-    border: none;
+    border: transparent;
+    outline: 0;
+    cursor: pointer;
+    caret-color: red;
+    
   }
+  .start-logo{
+    width: 150px;
+    height: 150px;
+
+  }
+ 

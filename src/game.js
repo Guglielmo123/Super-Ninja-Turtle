@@ -45,34 +45,38 @@ function placeEnemies(){
     } else if (e.code === 'ArrowLeft') {
       // move left 
       isMovingLeft = true;
+      arrowMoveLeft = true;
      
     } else if (e.code === 'ArrowRight') {
       // move right 
       isMovingRight = true;
-
-    } else if (e.code === 'Space') {
+      arrowMoveRight = true;
+    } 
+    
+    if (e.code === 'Space'&& gameOver === true) {
       velocityX =-8
       gameOver = false;
-    }
-  
-    if (gameOver) {
       turtleImg.src = "./images/ninja-turtle-player.png";
       turtle.y = turtleY;
       enemiesArray = [];
       score = 0;
-      gameOver = false;
     }
+  
   }
   
   function stopMoving(e) {
     if (e.code === 'ArrowLeft') {
       isMovingLeft = false;
+      arrowMoveLeft = false;
     } else if (e.code === 'ArrowRight') {
       isMovingRight = false;
+      arrowMoveRight = false;
+
     }
   }
   
   function updateTurtlePosition() {
+
     if (isMovingLeft) {
       turtle.x -= movementSpeed;
       if (turtle.x < 0) {
@@ -88,72 +92,6 @@ function placeEnemies(){
   
   setInterval(updateTurtlePosition, 10);
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*
-  function moveTurtle(e){
-  
-  if((e.code === 'Space'|| e.code === 'ArrowUp')&& turtle.y == turtleY){
-  //jump 
-  velocityY = -10;
-  
-  }
-  
-  if(e.code === 'ArrowLeft'){
-    // move left 
-    turtle.x = -10;
-    if (turtle.x < 0) {
-      turtle.x = 0; // prevent turtle from going off the left edge of the canvas
-    }
-  }
-
-  else if (e.code === 'ArrowRight'){
-    // move right 
-    turtle.x = +50;
-    if(turtle.x + turtle.width > boardWidth){
-      turtle.x = boardWidth - turtle.width;
-
-    }
-  }
-
-
-  if(gameOver){
-    turtleImg.src = "./images/ninja-turtle-player.png";
-    turtle.y = turtleY;
-    enemiesArray = [];
-    score = 0;
-    gameOver = false;
-  }
-     
-  }
-  */
   function detectCollision(a, b){
     return a.x <  b.x + b.width && // a's top left corner does not reach b's top right corner  
       a.x + a.width > b.x && //a's top right corner is bigger than b's top left corner  

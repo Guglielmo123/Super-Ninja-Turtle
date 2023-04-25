@@ -12,15 +12,17 @@
     <div class="game-intro">
         <img src="./images/Ninja-Turtles-Logo.png" alt="logoImg" class="logo-img"/>
     <br/>
-    <button id="start-button">Start Game</button>
-    <p>Use the space key to make the turtle jump!</p>
-    <img src="./images/space_key-removebg-preview.png" alt="arrowsImg" class="arrows-img"/>
+    <p>Use the arrows to move the Ninja Turtle!</p>
+    <img src="./images/arrowKeys.png" alt="arrowKeys" class="arrow-keys"/>
+    <p>Use the space key to reset the game!</p>
+    <img src="./images/space_key-removebg-preview.png" alt="space" class="space-img"/>
     </div>
 
     <div id="game-board">
-        <canvas id="board"></canvas>
+        <canvas id="board" width="750" height="550"></canvas>
+        <button id="start-button"><div><img src="./images/Cartoon-Play-button.png" alt="greenpush" class="start-logo"/></div>
+        </button>
     </div>
-<!-- test-->
     <script src="./src/game.js"></script>
     <script src="./src/variables.js"></script>
     <script type="text/javascript" src="./src/index.js"></script>
