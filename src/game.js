@@ -62,6 +62,7 @@ function placeEnemies(){
       enemiesArray = [];
       score = 0;
       musicRecharge.play();
+      turtle.lives = 3;
     }
   
   }

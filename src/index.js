@@ -1,8 +1,10 @@
+console.log(localStorage.key(0))
 // on load function when page loads -> we want background canvas to show 
 window.onload = function (){  
   board = document.getElementById("board");
   board.height = boardHeight;
   board.width = boardWidth;
+
 
   context = board.getContext("2d");
   backgroundImage.draw();
@@ -63,13 +65,32 @@ velocityY+=gravity;
 turtle.y = Math.min(turtle.y+velocityY,turtleY) // making sure that the turle y position is not below the fixed turtleY position
 context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
 //Enemies
+if (score > topScore){
+  topScore = score;
+}
 
+if(!gameOver){
+  context.fillStyle='black';
+context.font='40px courier';
+score++;
+context.fillText(`Your Score: ${score}pts`, (boardWidth/4)+20, boardHeight/8);
+}
 for(let i = 0; i < enemiesArray.length; i++ ){
   let enemy = enemiesArray[i];
   enemy.x += velocityX
   context.drawImage(enemy.img,enemy.x, enemy.y, enemy.width, enemy.height);
-
+  // top score logic 
+ if (turtle.lives > 1){
+  gameOver = false
   if (detectCollision(turtle, enemy)){
+    enemiesArray.splice(enemy, 1)
+    turtle.lives--;
+
+  }
+
+ }else {
+  if (detectCollision(turtle, enemy)){
+    
     velocityX = 0
     turtleImg.src="./images/rip-removebg-preview.png"
     context.clearRect(0,0,boardWidth, boardHeight)
@@ -77,23 +98,22 @@ for(let i = 0; i < enemiesArray.length; i++ ){
     musicGameOver.play();
     music.pause();
     context.fillStyle='red'
-    context.fillText(`GAME OVER!:`, (boardWidth/4)+20, boardHeight/8);
+    context.fillText(`GAME OVER!:`, (boardWidth/4)+20, boardHeight/16);
     context.fillStyle='green'
-    context.fillText(`${score}pts`,(boardWidth/4)+300, boardHeight/8);
+    context.fillText(`${score}pts`,(boardWidth/4)+300, boardHeight/16);
+    context.fillStyle='black'
+    context.fillText(`Your Top Score: ${topScore}pts`,(boardWidth/8), boardHeight/6);
       gameOver = true; 
     }
+
+ }
+
+
+  
      
 
-
-
-
 //Score 
-if(!gameOver){
-  context.fillStyle='black';
-context.font='40px courier';
-score++;
-context.fillText(`Your Score: ${score}pts`, (boardWidth/4)+20, boardHeight/8);
-}
+
 
 }
 

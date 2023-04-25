@@ -18,6 +18,7 @@ let turtle = {
   y: turtleY,
   width: turtleWidth,
   height: turtleHeight,
+  lives: 3,
 }
 
 // Enemies
@@ -88,4 +89,16 @@ backgroundImg.src="./images/background nyc.jpg";
     }
 }}
 const backgroundImage = new BackgroundImage();
+
+// top score function 
+let topScore = 0;
+
+// heart images
+const heartsImg = new Image();
+heartsImg.src="./images/hearts.png"
+
+
+
+
+
 
