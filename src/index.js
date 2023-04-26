@@ -87,7 +87,7 @@ context.drawImage(turtleBlackShell,-30,8,250,130);
 context.fillStyle = 'white';
 context.fillText(`Saved`, 65, 70); 
 context.fillText(`Score:`,65,90);
-context.fillText(`${highScore}`, 80, 110);
+context.fillText(`${highScore}`, 80, 115);
 }
 for(let i = 0; i < enemiesArray.length; i++ ){
   let enemy = enemiesArray[i];
