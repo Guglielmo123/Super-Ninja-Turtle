@@ -33,7 +33,9 @@ window.onload = function () {
   enemy3Img.src = "./images/enemy3.png";
   let gameRunning = false;
 
+  
   const music = document.getElementById("music");
+ 
 
   const startButton = document.getElementById("start-button");
   console.log(startButton);
@@ -102,6 +104,8 @@ function update() {
       if (detectCollision(turtle, enemy)) {
         enemiesArray.splice(enemy, 1);
         turtle.lives--;
+        const ouchMusic = document.getElementById('ouch-music');
+        ouchMusic.play();
       }
     } else {
       if (detectCollision(turtle, enemy)) {

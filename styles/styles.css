@@ -31,7 +31,7 @@ body {
     width: 500px;
     border-radius: 10px;
     border: 10px solid black;
-    margin-top: 120px;
+    margin-top: 0px;
 
 }
 
@@ -39,6 +39,7 @@ body {
     width: 120px;
     height: 120px;
     margin: 0px;
+    padding-top: 0px;
 }
 
 .arrow-keys {
@@ -55,7 +56,8 @@ body {
 
 #board {
     border: 10px solid black;
-    margin-top: 60px;
+    margin-top: 100px;
+    border-radius: 10px;
     /*     background-image: url('../images/background\ nyc.jpg');
     background-size: cover;
     background-repeat: no-repeat; */
@@ -83,4 +85,11 @@ body {
     width: 150px;
     height: 150px;
 
+}
+.first-p{
+    margin: 10px 0px 5px 0px;
+
+}
+.second-p{
+    margin: 0px 0px 0px 0px;
 }

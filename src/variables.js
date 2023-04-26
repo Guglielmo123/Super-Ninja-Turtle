@@ -108,5 +108,3 @@ turtleBlackShell.src = "./images/turtle_shell_black.png"
 
 
 
-
-
