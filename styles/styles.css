@@ -31,7 +31,7 @@ body {
     width: 550px;
     border-radius: 10px;
     border: 10px solid black;
-    margin-top: 0px;
+    margin-top: 50px;
 
 }
 
@@ -57,7 +57,7 @@ body {
 
 #board {
     border: 10px solid black;
-    margin-top: 100px;
+    margin-top: 10px;
     border-radius: 10px;
     /*     background-image: url('../images/background\ nyc.jpg');
     background-size: cover;
@@ -112,5 +112,13 @@ body {
 }
 .giphy-border{
        border-radius: 50%; 
+
+}
+.win{
+    color: aqua;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+    padding: 20px;
+    border-radius: 50%;
 
 }

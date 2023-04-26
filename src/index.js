@@ -54,9 +54,10 @@ window.onload = function () {
 };
 
 const musicGameOver = document.getElementById("music-gameover");
-
+let frames = 0
 function update() {
   requestAnimationFrame(update);
+  frames++
   gameWin();
   if (gameOver) {
     return;
@@ -92,9 +93,9 @@ function update() {
     context.drawImage(turtleBlackShell, -30, 8, 250, 130);
     // context.fillRect(10,10,100,100);
     context.fillStyle = "white";
-    context.fillText(`Saved`, 65, 70);
-    context.fillText(`Score:`, 65, 90);
-    context.fillText(`${highScore}`, 80, 115);
+    context.fillText(`High`, 72, 70);
+    context.fillText(`Score:`, 68, 90);
+    context.fillText(`${highScore}`, 80, 110);
   }
   for (let i = 0; i < enemiesArray.length; i++) {
     let enemy = enemiesArray[i];

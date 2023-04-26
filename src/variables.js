@@ -114,9 +114,11 @@ gameWinImage.src="./images/gameWin.png"
 // if game is won 
 
 function gameWin(){
-  if(score > 100){
+  if(score > 5000){
     context.drawImage(gameWinImage,0,0,boardWidth,boardHeight);
-    context.fillStyle = changeColor();
+    if (frames % 20 === 0){
+      context.fillStyle = changeColor();
+    }
     context.font = "45px fantasy";
     context.fillText('CONGRATULATIONS!',162,80);
     context.fillText('Ninja Turtles Survive!',190, 130);
@@ -126,14 +128,13 @@ function gameWin(){
 
 function changeColor(){
 
-let colorsArray = ['green', 'black', 'white', 'purple']
+let colorsArray = ['red', 'black', 'white', 'aqua']
 let randomIndex;
-setInterval(()=>{
   for(i=0; i<colorsArray.length; i++){
     randomIndex = Math.floor(Math.random() * colorsArray.length);
       colorsArray[i] = colorsArray[randomIndex];
 
-    }},2000)
+    }
   return colorsArray[randomIndex];
 }
 
