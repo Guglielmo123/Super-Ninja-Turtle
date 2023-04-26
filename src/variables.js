@@ -10,7 +10,7 @@ let boardHeight = 550;
 let turtleWidth = 110;
 let turtleHeight = 130;
 let turtleX = 50;
-let turtleY = boardHeight - turtleHeight+20;
+let turtleY = boardHeight - turtleHeight + 20;
 let turtleImg;
 
 let turtle = {
@@ -19,6 +19,13 @@ let turtle = {
   width: turtleWidth,
   height: turtleHeight,
   lives: 3,
+}
+
+function drawHearts (lives) {
+    const heartsImg = new Image();
+    heartsImg.src=`./images/${lives}-heart.png`;
+    context.drawImage(heartsImg, 0, 150, 150, 150);
+
 }
 
 // Enemies
@@ -30,7 +37,7 @@ let enemy3Width = 90;
 
 let enemyHeight = 70;
 let enemyX = 750;
-let enemyY = boardHeight -  enemyHeight;
+let enemyY = boardHeight - enemyHeight;
 
 let enemy1Img;
 let enemy2Img;
@@ -47,47 +54,48 @@ let score = 0;
 
 // move background with arrow keys 
 
-xSpeed = 5 
+xSpeed = 5
 xxSpeed = -5
 
 
 let arrowMoveLeft = false;
-let arrowMoveRight = false; 
+let arrowMoveRight = false;
 
 
 
 const backgroundImg = new Image();
-backgroundImg.src="./images/background nyc.jpg";
+backgroundImg.src = "./images/background nyc.jpg";
 
-  class  BackgroundImage{
-    constructor(){
-        this.img = backgroundImg;
-        this.x =0;
-        this.speed = 0;
-        
-    }
-    move(){
-        this.x+= this.speed;
-        this.x %=boardWidth;
-    }
-    draw(){
-        context.drawImage(this.img, this.x, 0, boardWidth, boardHeight); 
-        context.drawImage(this.img, this.x + boardWidth, 0, boardWidth, boardHeight);
-        context.drawImage(this.img, this.x - boardWidth, 0, boardWidth, boardHeight);
-        if(this.speed<0){
-        context.drawImage(this.img,this.x + boardWidth, 0, boardWidth, boardHeight);
-    }else {
-        context.drawImage(this.img, this.x - this.img.width,0, boardWidth, boardHeight);
+class BackgroundImage {
+  constructor() {
+    this.img = backgroundImg;
+    this.x = 0;
+    this.speed = 0;
+
+  }
+  move() {
+    this.x += this.speed;
+    this.x %= boardWidth;
+  }
+  draw() {
+    context.drawImage(this.img, this.x, 0, boardWidth, boardHeight);
+    context.drawImage(this.img, this.x + boardWidth, 0, boardWidth, boardHeight);
+    context.drawImage(this.img, this.x - boardWidth, 0, boardWidth, boardHeight);
+    if (this.speed < 0) {
+      context.drawImage(this.img, this.x + boardWidth, 0, boardWidth, boardHeight);
+    } else {
+      context.drawImage(this.img, this.x - this.img.width, 0, boardWidth, boardHeight);
     }
 
-    if(arrowMoveLeft){
-      this.speed= 1
-    }else if(arrowMoveRight){
-      this.speed= -1
-    }else{
-      this.speed=0
+    if (arrowMoveLeft) {
+      this.speed = 1
+    } else if (arrowMoveRight) {
+      this.speed = -1
+    } else {
+      this.speed = 0
     }
-}}
+  }
+}
 const backgroundImage = new BackgroundImage();
 
 // top score function 
@@ -96,12 +104,9 @@ let topScore = 0;
 
 
 // heart images
-const heartsImg = new Image();
-heartsImg.src="./images/hearts.png"
-
 // turtle black shell 
 let turtleBlackShell = new Image();
-turtleBlackShell.src="./images/turtle_shell_black.png"
+turtleBlackShell.src = "./images/turtle_shell_black.png"
 
 
 

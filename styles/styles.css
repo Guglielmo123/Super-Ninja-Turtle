@@ -13,9 +13,9 @@ body {
 
 
 
-.game-intro{
+.game-intro {
     padding: 0px;
-    
+
 
 }
 
@@ -27,7 +27,7 @@ body {
 
 }
 
-.logo-img{
+.logo-img {
     width: 500px;
     border-radius: 10px;
     border: 10px solid black;
@@ -35,17 +35,18 @@ body {
 
 }
 
-.space-img{
+.space-img {
     width: 120px;
     height: 120px;
     margin: 0px;
 }
-.arrow-keys{
+
+.arrow-keys {
     width: 160px;
     height: 110px;
 }
 
-#game-board{
+#game-board {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -55,15 +56,15 @@ body {
 #board {
     border: 10px solid black;
     margin-top: 60px;
-/*     background-image: url('../images/background\ nyc.jpg');
+    /*     background-image: url('../images/background\ nyc.jpg');
     background-size: cover;
     background-repeat: no-repeat; */
-    
 
-    
-  }
 
-  #start-button{
+
+}
+
+#start-button {
     background-color: transparent;
     font-size: 18px;
     font-style: oblique;
@@ -75,11 +76,11 @@ body {
     outline: 0;
     cursor: pointer;
     caret-color: red;
-    
-  }
-  .start-logo{
+
+}
+
+.start-logo {
     width: 150px;
     height: 150px;
 
-  }
- 
+}
