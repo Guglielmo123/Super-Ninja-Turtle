@@ -1,12 +1,14 @@
 console.log(localStorage.key(0))
+let highScore;
 // on load function when page loads -> we want background canvas to show 
 window.onload = function (){  
   board = document.getElementById("board");
   board.height = boardHeight;
   board.width = boardWidth;
-
-
   context = board.getContext("2d");
+  highScore = localStorage.getItem('topScore') || 0;
+  
+  
   backgroundImage.draw();
   // draw turtle once page is loaded 
   turtleImg = new Image();
@@ -15,6 +17,8 @@ window.onload = function (){
     // calling a function when image loads - display it!
     context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
   };
+
+
 
 enemy1Img = new Image();
 enemy1Img.src= "./images/enemy1.png"
@@ -48,7 +52,10 @@ document.addEventListener('keyup', stopMoving);
 
 const musicGameOver = document.getElementById('music-gameover');
 
-function update(){
+
+
+
+function update (){
 requestAnimationFrame(update);
 
 if(gameOver){
@@ -74,6 +81,13 @@ if(!gameOver){
 context.font='40px courier';
 score++;
 context.fillText(`Your Score: ${score}pts`, (boardWidth/4)+20, boardHeight/8);
+context.font='20px fantasy';
+context.drawImage(turtleBlackShell,-30,8,250,130);
+// context.fillRect(10,10,100,100);
+context.fillStyle = 'white';
+context.fillText(`Saved`, 65, 70); 
+context.fillText(`Score:`,65,90);
+context.fillText(`${highScore}`, 80, 110);
 }
 for(let i = 0; i < enemiesArray.length; i++ ){
   let enemy = enemiesArray[i];
@@ -97,6 +111,7 @@ for(let i = 0; i < enemiesArray.length; i++ ){
     backgroundImage.draw();
     musicGameOver.play();
     music.pause();
+    context.font='40px courier';
     context.fillStyle='red'
     context.fillText(`GAME OVER!:`, (boardWidth/4)+20, boardHeight/16);
     context.fillStyle='green'
@@ -104,6 +119,8 @@ for(let i = 0; i < enemiesArray.length; i++ ){
     context.fillStyle='black'
     context.fillText(`Your Top Score: ${topScore}pts`,(boardWidth/8), boardHeight/6);
       gameOver = true; 
+      localStorage.setItem('topScore', topScore)
+      highScore = localStorage.getItem('topScore') || 0;
     }
 
  }

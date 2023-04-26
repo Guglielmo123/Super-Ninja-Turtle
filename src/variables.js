@@ -93,10 +93,15 @@ const backgroundImage = new BackgroundImage();
 // top score function 
 let topScore = 0;
 
+
+
 // heart images
 const heartsImg = new Image();
 heartsImg.src="./images/hearts.png"
 
+// turtle black shell 
+let turtleBlackShell = new Image();
+turtleBlackShell.src="./images/turtle_shell_black.png"
 
 
 
