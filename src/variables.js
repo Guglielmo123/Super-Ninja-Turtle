@@ -20,11 +20,11 @@ let turtle = {
   height: turtleHeight,
   lives: 3,
 }
-
+// heart images
 function drawHearts (lives) {
     const heartsImg = new Image();
     heartsImg.src=`./images/${lives}-heart.png`;
-    context.drawImage(heartsImg, 0, 150, 150, 150);
+    context.drawImage(heartsImg, 550, 50, 200, 150);
 
 }
 
@@ -102,8 +102,6 @@ const backgroundImage = new BackgroundImage();
 let topScore = 0;
 
 
-
-// heart images
 // turtle black shell 
 let turtleBlackShell = new Image();
 turtleBlackShell.src = "./images/turtle_shell_black.png"
