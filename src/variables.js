@@ -13,6 +13,7 @@ let turtleX = 50;
 let turtleY = boardHeight - turtleHeight + 20;
 let turtleImg;
 
+// player object that holds the variables 
 let turtle = {
   x: turtleX,
   y: turtleY,
@@ -105,6 +106,36 @@ let topScore = 0;
 // turtle black shell 
 let turtleBlackShell = new Image();
 turtleBlackShell.src = "./images/turtle_shell_black.png"
+
+//game win frame 
+let gameWinImage = new Image();
+gameWinImage.src="./images/gameWin.png"
+
+// if game is won 
+
+function gameWin(){
+  if(score > 100){
+    context.drawImage(gameWinImage,0,0,boardWidth,boardHeight);
+    context.fillStyle = changeColor();
+    context.font = "45px fantasy";
+    context.fillText('CONGRATULATIONS!',162,80);
+    context.fillText('Ninja Turtles Survive!',190, 130);
+    gameOver = true; 
+  }
+}
+
+function changeColor(){
+
+let colorsArray = ['green', 'black', 'white', 'purple']
+let randomIndex;
+setInterval(()=>{
+  for(i=0; i<colorsArray.length; i++){
+    randomIndex = Math.floor(Math.random() * colorsArray.length);
+      colorsArray[i] = colorsArray[randomIndex];
+
+    }},2000)
+  return colorsArray[randomIndex];
+}
 
 
 

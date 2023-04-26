@@ -35,6 +35,7 @@ window.onload = function () {
 
   
   const music = document.getElementById("music");
+  music.volume = 0.1;
  
 
   const startButton = document.getElementById("start-button");
@@ -56,7 +57,7 @@ const musicGameOver = document.getElementById("music-gameover");
 
 function update() {
   requestAnimationFrame(update);
-
+  gameWin();
   if (gameOver) {
     return;
   } // if the game is over we want eveything to stop
@@ -71,9 +72,7 @@ function update() {
   turtle.y = Math.min(turtle.y + velocityY, turtleY); // making sure that the turle y position is not below the fixed turtleY position
   context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
   //Enemies
-  if (score > topScore) {
-    topScore = score;
-  }
+
  //Score 
   if (!gameOver) {
     context.fillStyle = "black";
@@ -84,6 +83,9 @@ function update() {
       boardWidth / 4 + 20,
       boardHeight / 8
     );
+    if (score >= topScore) {
+      topScore = score;
+    }
     context.font = "20px fantasy";
     /* let turtleBlackShell = new Image();
     turtleBlackShell.src = "./images/turtle_shell_black.png";*/

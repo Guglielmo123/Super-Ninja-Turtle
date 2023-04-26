@@ -28,7 +28,7 @@ body {
 }
 
 .logo-img {
-    width: 500px;
+    width: 550px;
     border-radius: 10px;
     border: 10px solid black;
     margin-top: 0px;
@@ -45,6 +45,7 @@ body {
 .arrow-keys {
     width: 160px;
     height: 110px;
+    margin-right: 10px;
 }
 
 #game-board {
@@ -92,4 +93,24 @@ body {
 }
 .second-p{
     margin: 0px 0px 0px 0px;
+}
+
+.giphy-arrows{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.like-this{
+    color: rgba(20, 83, 20, 0.984);
+    font-size: medium;
+    font-style: normal;
+}
+.green-arrow{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.giphy-border{
+       border-radius: 50%; 
+
 }
