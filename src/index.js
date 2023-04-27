@@ -35,7 +35,7 @@ window.onload = function () {
 
   
   const music = document.getElementById("music");
-  music.volume = 0.1;
+  music.volume = 0.2;
  
 
   const startButton = document.getElementById("start-button");
