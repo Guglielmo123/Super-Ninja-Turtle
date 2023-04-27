@@ -61,16 +61,17 @@ function update() {
   gameWin();
   if (gameOver) {
     return;
-  } // if the game is over we want eveything to stop
+  } // if the game is over we want everything to stop
   backgroundImage.move();
   //clear canvas on each interaction
   context.clearRect(0, 0, boardWidth, boardHeight);
 
   backgroundImage.draw();
+  console.log(turtle.lives);
   drawHearts(turtle.lives);
   // turtle
   velocityY += gravity;
-  turtle.y = Math.min(turtle.y + velocityY, turtleY); // making sure that the turle y position is not below the fixed turtleY position
+  turtle.y = Math.min(turtle.y + velocityY, turtleY); // making sure that the turtle y position is not below the fixed turtleY position
   context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
   //Enemies
 
@@ -105,8 +106,8 @@ function update() {
     if (turtle.lives > 1) {
       gameOver = false;
       if (detectCollision(turtle, enemy)) {
-        enemiesArray.splice(enemy, 1);
-        turtle.lives--;
+        enemiesArray.splice(i, 1);
+        turtle.lives -- ;
         const ouchMusic = document.getElementById('ouch-music');
         ouchMusic.play();
       }
