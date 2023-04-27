@@ -55,6 +55,8 @@ window.onload = function () {
 
 const musicGameOver = document.getElementById("music-gameover");
 let frames = 0
+
+
 function update() {
   requestAnimationFrame(update);
   frames++

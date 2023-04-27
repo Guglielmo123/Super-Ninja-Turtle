@@ -30,9 +30,11 @@ body {
 .logo-img {
     width: 550px;
     border-radius: 10px;
-    border: 10px solid black;
+    border: 10px solid  black;
+    border-image-outset: blue;
     margin-top: 50px;
-
+    
+    
 }
 
 .space-img {
@@ -59,9 +61,7 @@ body {
     border: 10px solid black;
     margin-top: 10px;
     border-radius: 10px;
-    /*     background-image: url('../images/background\ nyc.jpg');
-    background-size: cover;
-    background-repeat: no-repeat; */
+    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
 
 
 
@@ -78,17 +78,18 @@ body {
     border: transparent;
     outline: 0;
     cursor: pointer;
-    caret-color: red;
+    caret-color: red;    
 
 }
 
 .start-logo {
     width: 150px;
     height: 150px;
+    
 
 }
 .first-p{
-    margin: 10px 0px 5px 0px;
+    margin: 15px 0px 5px 0px;
 
 }
 .second-p{
@@ -116,9 +117,24 @@ body {
 }
 .win{
     color: aqua;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: black;
+    font-family:Arial, Helvetica, sans-serif ;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.818);
     padding: 20px;
-    border-radius: 50%;
+        --s: 0.1em;   /* the thickness of the line */
+        --c: red; /* the color */
+        
+        color: #0000;
+        padding-bottom: var(--s);
+        background: 
+          linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
+          linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+        -webkit-background-clip: text,padding-box;
+                background-clip: text,padding-box;
+        transition: 0.5s;
+      
 
 }
+.win:hover {--_p: 100%}
+
+
