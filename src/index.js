@@ -1,5 +1,6 @@
 console.log(localStorage.key(0));
 let highScore;
+
 // on load function when page loads -> we want background canvas to show
 window.onload = function () {
   board = document.getElementById("board");
@@ -75,7 +76,7 @@ function update() {
   velocityY += gravity;
   turtle.y = Math.min(turtle.y + velocityY, turtleY); // making sure that the turtle y position is not below the fixed turtleY position
   context.drawImage(turtleImg, turtle.x, turtle.y, turtle.width, turtle.height);
-  //Enemies
+  
 
  //Score 
   if (!gameOver) {
@@ -91,8 +92,7 @@ function update() {
       topScore = score;
     }
     context.font = "20px fantasy";
-    /* let turtleBlackShell = new Image();
-    turtleBlackShell.src = "./images/turtle_shell_black.png";*/
+
     context.drawImage(turtleBlackShell, -30, 8, 250, 130);
     // context.fillRect(10,10,100,100);
     context.fillStyle = "white";
